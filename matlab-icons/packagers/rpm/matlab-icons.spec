@@ -3,7 +3,7 @@ Version:        0.1.1
 
 # Since whenever you update this file on git, it should be a new version
 # This realease number should stay at 1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Icons and launcher for Matlab
 
 License:        MIT
@@ -31,7 +31,7 @@ I created launchers and icons for Matlab.
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_datadir}/
 ls -lah
-cp -R ./root/%{_datadir}/* %{buildroot}%{_datadir}
+cp -R ./applications ./icons %{buildroot}%{_datadir}
 
 
 %clean
@@ -78,6 +78,8 @@ fi
 
 
 %changelog
+* Thu Sep 27 2012 Mark Harfouche+mark.harfouche@gmail.com - 0.1.1-5
+- The package now follows the new structure of the source
 * Thu Sep 27 2012 Mark Harfouche+mark.harfouche@gmail.com - 0.1.1-4
 - The package now updates the icon cache.
 
