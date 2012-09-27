@@ -1,0 +1,6 @@
+Date: 2012.09.15
+By: Mark Harfouche
+email: mark.harfouche@gmail.com
+
+
+This package adds icons and creates a launcher for Matlab. It was tested with Matlab 2011a onwards. The only requirement is that matlab be installed and that the launching scripts are somewhere in your PATH for the .desktop file to detect matlab.
