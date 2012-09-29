@@ -31,7 +31,10 @@ I created launchers and icons for Matlab.
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_datadir}/
 ls -lah
-cp -R ./applications ./icons %{buildroot}%{_datadir}
+cp -R ./icons %{buildroot}%{_datadir}
+# see  to learn how to properly install a .desktop see
+# https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#Desktop_files
+desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applications ./matlab.desktop
 
 
 %clean
