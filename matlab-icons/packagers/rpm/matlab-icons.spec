@@ -1,8 +1,6 @@
 Name:           matlab-icons
 Version:        0.1.1
 
-# Since whenever you update this file on git, it should be a new version
-# This realease number should stay at 1
 Release:        5%{?dist}
 Summary:        Icons and launcher for Matlab
 
