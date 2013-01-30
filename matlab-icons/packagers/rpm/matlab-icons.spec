@@ -1,7 +1,7 @@
 Name:           matlab-icons
 Version:        0.1.1
 
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Icons and launcher for Matlab
 
 License:        MIT
@@ -39,29 +39,18 @@ desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 rm -rf %{buildroot}
 
 %post
-#things to run after the install is complete
-
-# Update Icon cache script obtained from
-#http://fedoraproject.org/wiki/Archive:PackagingDrafts/ScriptletSnippets/iconcache
-if [ -f "%{_bindir}/xdg-icon-resource" ]
-then
-	%{_bindir}/xdg-icon-resource forceupdate --theme hicolor 2> /dev/null || :
-fi
-if which update-desktop-database >>/dev/null
-then
-	update-desktop-database
-fi
+/usr/bin/update-desktop-database &> /dev/null || :
+/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
 %postun
-#things to run after uninstalling the stuff
-if [ -f "%{_bindir}/xdg-icon-resource" ]
-then
-	%{_bindir}/xdg-icon-resource forceupdate --theme hicolor 2> /dev/null || :
+/usr/bin/update-desktop-database &> /dev/null || :
+if [ $1 -eq 0 ] ; then
+    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
-if which update-desktop-database >>/dev/null
-then
-	update-desktop-database
-fi
+
+%posttrans
+/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files
 %doc README LICENSE
@@ -79,6 +68,9 @@ fi
 
 
 %changelog
+* Wed Jan 30 2013 RPM Maker - 0.1.1-6
+- Fixed the icon cache update
+
 * Thu Sep 27 2012 Mark Harfouche+mark.harfouche@gmail.com - 0.1.1-5
 - The package now follows the new structure of the source
 * Thu Sep 27 2012 Mark Harfouche+mark.harfouche@gmail.com - 0.1.1-4
