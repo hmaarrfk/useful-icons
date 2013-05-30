@@ -1,7 +1,7 @@
 Name:           matlab-icons
 Version:        0.1.1
 
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Icons and launcher for Matlab
 
 License:        MIT
@@ -28,7 +28,19 @@ I created launchers and icons for Matlab.
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_datadir}/
-ls -lah
+mkdir -p %{buildroot}%{_bindir}/
+#ls -lah
+matlab_dir=/usr/local/MATLAB/
+matlab_ver=R2013a
+if [ -d "/usr/local/MATLAB/" ]; then
+    # find the latest matlab install
+    matlab_ver_temp=`ls ${matlab_dir} | grep R20 | sort -n` 
+    if [ -n "${matlab_ver_temp}" ]; then
+        matlab_ver=${matlab_ver_temp}
+    fi
+fi
+# link to the matlab install
+ln -s ${matlab_dir}${matlab_ver}/bin/matlab %{buildroot}%{_bindir}/matlab
 cp -R ./icons %{buildroot}%{_datadir}
 # see  to learn how to properly install a .desktop see
 # https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#Desktop_files
@@ -63,11 +75,16 @@ fi
 %{_datadir}/icons/hicolor/128x128/apps/*
 %{_datadir}/icons/hicolor/36x36/apps/*
 %{_datadir}/applications/*
+%{_bindir}/matlab
 
 
 
 
 %changelog
+* Thu May 30 2013 Mark Harfouche - 0.1.1-7
+- Updated for R2013a. Had to create a link to the executable since it wasn't
+  created by default
+
 * Wed Jan 30 2013 RPM Maker - 0.1.1-6
 - Fixed the icon cache update
 
