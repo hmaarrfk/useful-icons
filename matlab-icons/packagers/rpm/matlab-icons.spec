@@ -1,7 +1,7 @@
 Name:           matlab-icons
 Version:        0.1.1
 
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Icons and launcher for Matlab
 
 License:        MIT
@@ -69,6 +69,10 @@ fi
 
 
 %changelog
+* Sun Dec 15 2013 Mark Harfouche - 0.1.1-9
+- Changed the WMClass type so that it catches the windows from R2103a and
+  classifies them under the same icon.
+
 * Thu May 30 2013 Mark Harfouche - 0.1.1-8
 - If you do a custom install of matlab it will create symlinks for you, so I
   undid the last change
