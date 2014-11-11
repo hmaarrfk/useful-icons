@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Comsol with Matlab
+Comment=COMSOL Multiphysics Modeling Software
+Icon=comsol_matlab
+MimeType=application/comsol;
+TryExec=comsol
+Exec=comsol server matlab "startup"

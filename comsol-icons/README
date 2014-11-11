@@ -1,0 +1,10 @@
+Date: 2014.11.11
+By: Mark Harfouche
+email: mark.harfouche@gmail.com
+
+
+This package adds icons and creates a launcher for Comsol.
+It was tested with Comsol 4.4 but should work with other versions too.
+The only requirement is that Comsol be installed and that the launching
+scripts are somewhere in your PATH for the .desktop file to detect the
+comsol command.

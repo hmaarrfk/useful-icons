@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Comsol
+Comment=COMSOL Multiphysics Modeling Software
+Icon=comsol
+MimeType=application/comsol;
+TryExec=comsol
+Exec=comsol
+StartupWMClass=SWT
