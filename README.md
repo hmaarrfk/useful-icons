@@ -13,4 +13,4 @@ Fedora:
 
 You can get packages for this at 
 
-    ftp://markharfouche.com
+    https://copr.fedoraproject.org/coprs/hmaarrfk/useful_launchers/
