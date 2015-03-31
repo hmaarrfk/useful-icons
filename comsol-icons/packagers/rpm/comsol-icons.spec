@@ -1,7 +1,7 @@
 Name:           comsol-icons
 Version:        0.1.0
 
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Icons and launcher for Comsol
 
 License:        MIT
@@ -13,7 +13,7 @@ BuildArch: noarch
 
 # It does not really require this because what if the user just wants the files
 # So I just leave it here for convenience
-#BuildRequires: desktop-file-utils
+BuildRequires: desktop-file-utils
 
 %description
 I created launchers and icons for Comsol.
@@ -63,13 +63,16 @@ fi
 
 
 %changelog
-* Tue Nov 11 2014 makerpm - 0.1.0-4
+* Tue Mar 31 2015 Mark Harfouche - 0.1.0-5
 - rebuilt
 
-* Tue Nov 11 2014 makerpm - 0.1.0-3
+* Tue Nov 11 2014 Mark Harfouche - 0.1.0-4
 - rebuilt
 
-* Tue Nov 11 2014 makerpm - 0.1.0-2
+* Tue Nov 11 2014 Mark Harfouche - 0.1.0-3
+- rebuilt
+
+* Tue Nov 11 2014 Mark Harfouche - 0.1.0-2
 - Added the comsol matlab server
 
 * Thu Sep 27 2012 Mark Harfouche+mark.harfouche@gmail.com - 0.1.0

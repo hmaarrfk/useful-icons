@@ -1,7 +1,7 @@
 Name:           matlab-icons
 Version:        0.1.1
 
-Release:        9%{?dist}
+Release:        10%{?dist}
 Summary:        Icons and launcher for Matlab
 
 License:        MIT
@@ -13,7 +13,7 @@ BuildArch: noarch
 
 # It does not really require this because what if the user just wants the files
 # So I just leave it here for convenience
-#BuildRequires: desktop-file-utils
+BuildRequires: desktop-file-utils
 
 %description
 I created launchers and icons for Matlab.
@@ -69,6 +69,9 @@ fi
 
 
 %changelog
+* Tue Mar 31 2015 Mark Harfouche - 0.1.1-10
+- Added a build require for the desktop file
+
 * Sun Dec 15 2013 Mark Harfouche - 0.1.1-9
 - Changed the WMClass type so that it catches the windows from R2103a and
   classifies them under the same icon.

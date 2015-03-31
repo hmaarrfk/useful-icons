@@ -7,7 +7,7 @@
 echo Parameters are $0 $1 $2 $3
 
 if [ $# -ne 1 ]
-then 
+then
 	echo "Must provide the package to create"
 fi
 
@@ -31,8 +31,8 @@ cp ${topackage}/packagers/rpm/${topackage}.spec ~/rpmbuild/SPECS/.
 
 cp -R ${topackage} ./BUILD/${topackage}-${version}
 
-tar czf ~/rpmbuild/SOURCES/${topackage}-${version}.tar.gz -C ./BUILD ${topackage}-${version}  
+tar czf ~/rpmbuild/SOURCES/${topackage}-${version}.tar.gz -C ./BUILD ${topackage}-${version}
 
 rm -rf ./BUILD/${topackage}-${version}
 
-rpmbuild -ba ~/rpmbuild/SPECS/${topackage}.spec
+rpmbuild -bs ~/rpmbuild/SPECS/${topackage}.spec
