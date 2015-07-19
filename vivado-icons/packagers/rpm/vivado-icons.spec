@@ -1,7 +1,7 @@
 Name:           vivado-icons
 Version:        0.1.1
 
-Release:        1%{?dist}
+Release:        4%{?dist}
 Summary:        Icons and launcher for Vivado
 
 License:        MIT
@@ -33,7 +33,7 @@ mkdir -p %{buildroot}%{_bindir}/
 cp -R ./icons %{buildroot}%{_datadir}
 # see  to learn how to properly install a .desktop see
 # https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#Desktop_files
-desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applications ./vivado.desktop
+desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applications ./*.desktop
 
 
 %clean
@@ -62,6 +62,15 @@ fi
 
 
 %changelog
+* Sun Jul 19 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.1-4
+- Added StartupWMClass
+
+* Sun Jul 19 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.1-3
+- rebuilt
+
+* Sun Jul 19 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.1-2
+- Only works with Vivado 2015.2 in the default directory /opt
+
 * Sun Jul 19 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-1
 - Didn't have an apps directory inside 64x64
 
