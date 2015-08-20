@@ -5,5 +5,5 @@ Name=Vivado
 Comment=Vivado
 Icon=vivado.png
 TryExec=/opt/Xilinx/Vivado/2015.2/bin/vivado
-Exec=/opt/Xilinx/Vivado/2015.2/bin/vivado
+Exec=/opt/Xilinx/Vivado/2015.2/bin/vivado -nolog -nojournal
 StartupWMClass=Vivado
