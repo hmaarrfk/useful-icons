@@ -1,7 +1,7 @@
 Name:           comsol-icons
 Version:        0.1.0
 
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Icons and launcher for Comsol
 
 License:        MIT
@@ -15,8 +15,16 @@ BuildArch: noarch
 # So I just leave it here for convenience
 BuildRequires: desktop-file-utils
 
+
 %description
 I created launchers and icons for Comsol.
+
+%package -n comsol-matlab-icons
+Summary:        Icons and launcher for Comsol with Matlab Livelink (R)
+Requires:  xterm
+Requires:  csh
+%description -n comsol-matlab-icons
+Launche for Comsol with Matlab Livelink(R).
 
 
 %prep
@@ -44,6 +52,10 @@ rm -rf %{buildroot}
 /usr/bin/update-desktop-database &> /dev/null || :
 /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
+%post -n comsol-matlab-icons
+/usr/bin/update-desktop-database &> /dev/null || :
+/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+
 %postun
 /usr/bin/update-desktop-database &> /dev/null || :
 if [ $1 -eq 0 ] ; then
@@ -51,18 +63,30 @@ if [ $1 -eq 0 ] ; then
     /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
 
-%posttrans
-/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+%postun -n comsol-matlab-icons
+/usr/bin/update-desktop-database &> /dev/null || :
+if [ $1 -eq 0 ] ; then
+    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+fi
 
 %files
 %doc README LICENSE
-%{_datadir}/icons/hicolor/256x256/apps/*
-%{_datadir}/applications/*
+%{_datadir}/icons/hicolor/256x256/apps/comsol.png
+%{_datadir}/applications/comsol.desktop
+
+%files -n comsol-matlab-icons
+%doc README LICENSE
+%{_datadir}/icons/hicolor/256x256/apps/comsol_matlab.png
+%{_datadir}/applications/comsol_matlab.desktop
 
 
 
 
 %changelog
+* Fri Aug 28 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-7
+- rebuilt
+
 * Tue Mar 31 2015 Mark Harfouche - 0.1.0-5
 - rebuilt
 
