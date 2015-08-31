@@ -1,7 +1,7 @@
 Name:           comsol-icons
 Version:        0.1.0
 
-Release:        6%{?dist}
+Release:        8%{?dist}
 Summary:        Icons and launcher for Comsol
 
 License:        MIT
@@ -21,8 +21,8 @@ I created launchers and icons for Comsol.
 
 %package -n comsol-matlab-icons
 Summary:        Icons and launcher for Comsol with Matlab Livelink (R)
-Requires:  xterm
-Requires:  csh
+#Requires:  xterm
+#Requires:  csh
 %description -n comsol-matlab-icons
 Launche for Comsol with Matlab Livelink(R).
 
@@ -39,6 +39,8 @@ mkdir -p %{buildroot}%{_datadir}/
 mkdir -p %{buildroot}%{_bindir}/
 #ls -lah
 cp -R ./icons %{buildroot}%{_datadir}
+install comsol_matlab.sh %{buildroot}%{_bindir}
+
 # see  to learn how to properly install a .desktop see
 # https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#Desktop_files
 desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applications ./comsol.desktop
@@ -71,20 +73,28 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %files
-%doc README LICENSE
+#%doc README LICENSE
 %{_datadir}/icons/hicolor/256x256/apps/comsol.png
 %{_datadir}/applications/comsol.desktop
 
 %files -n comsol-matlab-icons
-%doc README LICENSE
+#%doc README LICENSE
 %{_datadir}/icons/hicolor/256x256/apps/comsol_matlab.png
 %{_datadir}/applications/comsol_matlab.desktop
+%{_bindir}/comsol_matlab.sh
+
 
 
 
 
 %changelog
-* Fri Aug 28 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-7
+* Mon Aug 31 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-8
+- Forgot to add the -desktop flag to the matlab command. Matlab would close automatically without it
+
+* Mon Aug 31 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-7
+- Custom comsol with matlab launcher that doesn't launch a useless terminal
+
+* Fri Aug 28 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-6
 - rebuilt
 
 * Tue Mar 31 2015 Mark Harfouche - 0.1.0-5
