@@ -4,7 +4,13 @@ comsol_bin_path=`dirname -z \`readlink -f \\\`which comsol\\\`\``
 
 comsol_path=`dirname ${comsol_bin_path}`
 
-comsol_mli_path=${comsol_path}/mli
+
+if [ -d "${comsol_path}/mli" ]; then
+    comsol_mli_path=${comsol_path}/mli
+else
+    comsol_mli_path=${comsol_path}/../mli
+fi
+
 
 echo ${comsol_mli_path}
 
