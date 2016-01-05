@@ -8,4 +8,4 @@ TryExec=comsol_matlab.sh
 #Exec=comsol server matlab "startup"
 Exec=comsol_matlab.sh
 #set to true to see debugging output
-Terminal=false
+Terminal=true

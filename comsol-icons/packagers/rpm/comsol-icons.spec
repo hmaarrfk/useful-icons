@@ -1,7 +1,7 @@
 Name:           comsol-icons
 Version:        0.1.0
 
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Icons and launcher for Comsol
 
 License:        MIT
@@ -88,6 +88,9 @@ fi
 
 
 %changelog
+* Tue Jan 05 2016 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-9
+- rebuilt with terminal for hte launcher
+
 * Mon Aug 31 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-8
 - Forgot to add the -desktop flag to the matlab command. Matlab would close automatically without it
 
