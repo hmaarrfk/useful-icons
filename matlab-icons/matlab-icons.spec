@@ -1,7 +1,7 @@
 Name:           matlab-icons
 Version:        0.1.1
 
-Release:        10%{?dist}
+Release:        11%{?dist}
 Summary:        Icons and launcher for Matlab
 
 License:        MIT
@@ -69,6 +69,9 @@ fi
 
 
 %changelog
+* Tue Jan 03 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.1-11
+- R2016b
+
 * Tue Mar 31 2015 Mark Harfouche - 0.1.1-10
 - Added a build require for the desktop file
 

@@ -27,7 +27,7 @@ version=`cat ${topackage}/VERSION`
 
 mkdir -p ./BUILD
 
-cp ${topackage}/packagers/rpm/${topackage}.spec ~/rpmbuild/SPECS/.
+cp ${topackage}/${topackage}.spec ~/rpmbuild/SPECS/.
 
 cp -R ${topackage} ./BUILD/${topackage}-${version}
 

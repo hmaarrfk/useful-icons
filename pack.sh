@@ -10,8 +10,8 @@ fi
 echo $the_package
 
 rpmdev-setuptree
-rmdir ~/rpmbuild/SOURCES
-rm ~/rpmbuild/SOURCES
+#rm -rf ~/rpmbuild/SOURCES/*
+#rmdir ~/rpmbuild/SOURCES
 ln -sfr -T $the_package ~/rpmbuild/SOURCES
 
 spectool -g ${the_package}/*.spec -C ${the_package}

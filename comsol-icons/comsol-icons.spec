@@ -1,12 +1,14 @@
 Name:           comsol-icons
 Version:        0.1.0
 
-Release:        10%{?dist}
+Release:        11%{?dist}
 Summary:        Icons and launcher for Comsol
 
 License:        MIT
 URL:            https://github.com/hmaarrfk/useful-icons/tree/master/comsol-icons
 Source0:        comsol-icons-%{version}.tar.gz
+
+BuildArch: noarch
 
 # It does not really require this because what if the user just wants the files
 # So I just leave it here for convenience
@@ -85,6 +87,9 @@ fi
 
 
 %changelog
+* Tue Jan 05 2016 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-11
+- Added noarch, trying to fix the search path for comsol 5.1
+
 * Tue Jan 05 2016 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.0-10
 - Removed noarch, trying to fix the search path for comsol 5.1
 

@@ -6,4 +6,5 @@ Icon=matlab
 MimeType=application/matlab;
 TryExec=matlab
 Exec=matlab -desktop
-StartupWMClass=MATLAB R2016b
+#StartupWMClass=com-mathworks-util-PostVMInit
+StartupWMClass=MATLAB R2015a - academic use

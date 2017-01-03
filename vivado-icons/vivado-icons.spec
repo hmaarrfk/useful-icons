@@ -1,7 +1,7 @@
 Name:           vivado-icons
-Version:        0.1.1
+Version:        0.1.2
 
-Release:        5%{?dist}
+Release:        1%{?dist}
 Summary:        Icons and launcher for Vivado
 
 License:        MIT
@@ -55,13 +55,16 @@ fi
 
 %files
 %doc README LICENSE
-%{_datadir}/icons/hicolor/64x64/apps/*
+%{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/applications/*
 
 
 
 
 %changelog
+* Sat May 7 2016 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.2
+- Updated to 2015.4
+
 * Fri Aug 14 2015 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.1-5
 - Remvoed log and journal. Too many get created otherwise
 
