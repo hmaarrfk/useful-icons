@@ -1,5 +1,5 @@
 Name:           vivado-icons
-Version:        0.1.2
+Version:        2016.4
 
 Release:        1%{?dist}
 Summary:        Icons and launcher for Vivado
@@ -62,6 +62,9 @@ fi
 
 
 %changelog
+* Wed Jan 11 2017 Mark Harfouche <mark.harfouche@gmail.com> - 2016.4-1
+- Updated to 2016.4
+
 * Sat May 7 2016 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.2
 - Updated to 2015.4
 

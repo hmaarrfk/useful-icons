@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Matlab
-Comment=The Language of Technical Computing
-Icon=matlab
-MimeType=application/matlab;
-TryExec=matlab
-Exec=matlab -desktop
-StartupWMClass=MATLAB R2016b
