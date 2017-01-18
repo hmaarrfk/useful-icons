@@ -31,7 +31,8 @@ EOF
         popd >> /dev/null
         tar -cf ${package_name}.tar.gz ${package_name}
         echo "Name:           matlab-${matlab_version}-desktop" > matlab-${matlab_version}-desktop.spec
-        cat matlab-desktop.spec >> matlab-${matlab_version}-desktop.spec
+        #cat matlab-desktop.spec >> matlab-${matlab_version}-desktop.spec
+        tail -n +1 matlab-desktop.spec >> matlab-${matlab_version}-desktop.spec
 
         rpmdev-setuptree
         cp matlab-${matlab_version}-desktop.spec ~/rpmbuild/SPECS/.

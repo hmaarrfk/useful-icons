@@ -22,7 +22,7 @@ Launchers and icons for Matlab.
 %build
 
 %install
-for r in 256x256 128x128 64x64 32x32; do
+for r in `ls %{name}/icons/hicolor`; do
     install -d %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
     install -m644 %{name}/icons/hicolor/${r}/apps/*.png %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
 done

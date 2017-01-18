@@ -1,39 +1,34 @@
-Name:           vivado-icons
-Version:        2016.4
+#Name:           vivado-desktop
+Version:        0.3
 
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Icons and launcher for Vivado
 
 License:        MIT
 URL:            https://github.com/hmaarrfk/useful-icons/tree/master/vivado-icons
-Source0:        vivado-icons-%{version}.tar.gz
+Source0:        %{name}.tar.gz
 
 
-BuildArch:      noarch
-
-# It does not really require this because what if the user just wants the files
-# So I just leave it here for convenience
+BuildArch: noarch
 BuildRequires: desktop-file-utils
 
 %description
-I created launchers and icons for Vivado.
+Launchers and icons for Vivado.
 
 
 %prep
-%setup -q
+%autosetup -c name
 
 %build
-#Nothing to do really since the files are all as is
 
 %install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}%{_datadir}/
-mkdir -p %{buildroot}%{_bindir}/
-#ls -lah
-cp -R ./icons %{buildroot}%{_datadir}
-# see  to learn how to properly install a .desktop see
-# https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#Desktop_files
-desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applications ./*.desktop
+for r in `ls %{name}/icons/hicolor`; do
+    install -d %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
+    install -m644 %{name}/icons/hicolor/${r}/apps/*.png %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
+done
+desktop_file_name=%{name}
+desktop_file_name=${desktop_file_name::-8}.desktop
+desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applications %{name}/${desktop_file_name}
 
 
 %clean
@@ -54,15 +49,16 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files
-%doc README LICENSE
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/applications/*
 
 
 
-
 %changelog
-* Wed Jan 11 2017 Mark Harfouche <mark.harfouche@gmail.com> - 2016.4-1
+* Sat Jan 14 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-2
+- Support for multiple Vivado version
+
+* Wed Jan 11 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.2
 - Updated to 2016.4
 
 * Sat May 7 2016 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.2
