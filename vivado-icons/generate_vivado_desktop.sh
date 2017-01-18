@@ -6,7 +6,6 @@ directory_suffix="apps"
 for i in {2014..2017}; do
     for j in {1..4}; do
         vivado_version=${i}.${j}
-        echo $vivado_version
         package_name=vivado-${vivado_version}-desktop
         rm -rf ${package_name}
         mkdir $package_name
@@ -33,7 +32,7 @@ EOF
         popd >> /dev/null
         tar -cf ${package_name}.tar.gz ${package_name}
         echo "Name:           vivado-${vivado_version}-desktop" > vivado-${vivado_version}-desktop.spec
-        tail -n +1 vivado-desktop.spec >> vivado-${vivado_version}-desktop.spec
+        tail -n +2 vivado-desktop.spec >> vivado-${vivado_version}-desktop.spec
 
         rpmdev-setuptree
         cp vivado-${vivado_version}-desktop.spec ~/rpmbuild/SPECS/.

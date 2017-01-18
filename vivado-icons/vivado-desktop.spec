@@ -1,4 +1,4 @@
-#Name:           vivado-desktop
+Name:           vivado-desktop
 Version:        0.3
 
 Release:        2%{?dist}
