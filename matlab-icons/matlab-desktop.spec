@@ -1,7 +1,7 @@
 Name:           matlab-desktop
 Version:        0.3
 
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Icons and launcher for Matlab
 
 License:        MIT
@@ -55,6 +55,9 @@ fi
 
 
 %changelog
+* Wed Jan 18 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-5
+- Blurred black background
+
 * Wed Jan 18 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-4
 - Bigger font on icons for R20XXx
 

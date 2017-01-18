@@ -26,7 +26,12 @@ EOF
         for r in $icon_resolutions; do
             the_directory="${directory_prefix}/$r/${directory_suffix}"
             mkdir -p "${the_directory}"
-            convert -pointsize 60 -fill white -draw 'text 50,240 '"${matlab_version}"' ' -resize ${r} ../matlab.png ${the_directory}/matlab-${matlab_version}.png
+            #convert -pointsize 60 -fill white -draw 'text 50,240 '"${matlab_version}"' ' -resize ${r} ../matlab.png ${the_directory}/matlab-${matlab_version}.png
+            convert -size 256x256 xc:none -pointsize 60 \
+                -stroke black -strokewidth 4 -annotate +40+240 "${matlab_version}" -blur 0x4 \
+                -fill   white -stroke none   -annotate +40+240 "${matlab_version}" \
+                -resize ${r} ${the_directory}/matlab-${matlab_version}.png
+            composite ${the_directory}/matlab-${matlab_version}.png -resize ${r} ../matlab.png ${the_directory}/matlab-${matlab_version}.png
         done
         popd >> /dev/null
         tar -cf ${package_name}.tar.gz ${package_name}
