@@ -1,7 +1,7 @@
-#Name:           matlab-desktop
+Name:           matlab-desktop
 Version:        0.3
 
-Release:        2%{?dist}
+Release:        4%{?dist}
 Summary:        Icons and launcher for Matlab
 
 License:        MIT
@@ -55,6 +55,12 @@ fi
 
 
 %changelog
+* Wed Jan 18 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-4
+- Bigger font on icons for R20XXx
+
+* Wed Jan 18 2017 Mark Harfouche <mark.harfouche@gmail.com>
+- rebuilt
+
 * Sat Jan 14 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-2
 - Support for multiple Matlab version
 

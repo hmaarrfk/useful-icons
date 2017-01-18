@@ -26,13 +26,13 @@ EOF
         for r in $icon_resolutions; do
             the_directory="${directory_prefix}/$r/${directory_suffix}"
             mkdir -p "${the_directory}"
-            convert -pointsize 30 -fill white -draw 'text 140,220 '"${matlab_version}"' ' -resize ${r} ../matlab.png ${the_directory}/matlab-${matlab_version}.png
+            convert -pointsize 60 -fill white -draw 'text 50,240 '"${matlab_version}"' ' -resize ${r} ../matlab.png ${the_directory}/matlab-${matlab_version}.png
         done
         popd >> /dev/null
         tar -cf ${package_name}.tar.gz ${package_name}
         echo "Name:           matlab-${matlab_version}-desktop" > matlab-${matlab_version}-desktop.spec
         #cat matlab-desktop.spec >> matlab-${matlab_version}-desktop.spec
-        tail -n +1 matlab-desktop.spec >> matlab-${matlab_version}-desktop.spec
+        tail -n +2 matlab-desktop.spec >> matlab-${matlab_version}-desktop.spec
 
         rpmdev-setuptree
         cp matlab-${matlab_version}-desktop.spec ~/rpmbuild/SPECS/.
