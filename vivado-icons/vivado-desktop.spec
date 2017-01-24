@@ -1,7 +1,7 @@
 Name:           vivado-desktop
 Version:        0.3
 
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Icons and launcher for Vivado
 
 License:        MIT
@@ -55,6 +55,9 @@ fi
 
 
 %changelog
+* Sat Jan 14 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-3
+- Blurred background for font
+
 * Sat Jan 14 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-2
 - Support for multiple Vivado version
 

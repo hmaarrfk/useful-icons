@@ -27,7 +27,12 @@ EOF
         for r in $icon_resolutions; do
             the_directory="${directory_prefix}/$r/${directory_suffix}"
             mkdir -p "${the_directory}"
-            convert -pointsize 15 -fill white -draw 'text 15,60 '\"${vivado_version}\"' ' -resize ${r} ../vivado.png ${the_directory}/vivado-${vivado_version}.png
+            #convert -pointsize 15 -fill white -draw 'text 15,60 '\"${vivado_version}\"' ' -resize ${r} ../vivado.png ${the_directory}/vivado-${vivado_version}.png
+            convert -size 64x64 xc:none -pointsize 15 \
+                -stroke black -strokewidth 2 -annotate +15+60 "${vivado_version}" -blur 0x2 \
+                -fill   white -stroke none   -annotate +15+60 "${vivado_version}" \
+                -resize ${r} ${the_directory}/vivado-${vivado_version}.png
+            composite ${the_directory}/vivado-${vivado_version}.png -resize ${r} ../vivado.png ${the_directory}/vivado-${vivado_version}.png
         done
         popd >> /dev/null
         tar -cf ${package_name}.tar.gz ${package_name}
