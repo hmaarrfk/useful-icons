@@ -2,7 +2,7 @@
 directory_prefix="icons/hicolor"
 icon_resolutions="64x64"
 directory_suffix="apps"
-name=${name}
+name=xilinx-sdk
 
 for i in {2014..2019}; do
     for j in {1..4}; do
@@ -15,19 +15,18 @@ for i in {2014..2019}; do
         cat >${name}-${version}.desktop <<EOF
 [Desktop Entry]
 Type=Application
-Name=Vivado ${version}
-Comment=Xilinx Vivado
+Name=Xilinx SDK ${version}
+Comment=Xilinx SDK
 Icon=${name}-${version}
-MimeType=application/${name};
-TryExec=/opt/Xilinx/Vivado/${version}/bin/${name}
-Exec=/opt/Xilinx/Vivado/${version}/bin/${name} -nolog -nojournal
-StartupWMClass=Vivado
+MimeType=application/vivado;
+TryExec=/opt/Xilinx/SDK/${version}/bin/xsdk
+Exec=/opt/Xilinx/SDK/${version}/bin/xsdk -nolog -nojournal
+StartupWMClass=Xilinx SDK
 EOF
 
         for r in $icon_resolutions; do
             the_directory="${directory_prefix}/$r/${directory_suffix}"
             mkdir -p "${the_directory}"
-            #convert -pointsize 15 -fill white -draw 'text 15,60 '\"${version}\"' ' -resize ${r} ../${name}.png ${the_directory}/${name}-${version}.png
             convert -size 64x64 xc:none -pointsize 15 \
                 -stroke black -strokewidth 2 -annotate +15+60 "${version}" -blur 0x2 \
                 -fill   white -stroke none   -annotate +15+60 "${version}" \

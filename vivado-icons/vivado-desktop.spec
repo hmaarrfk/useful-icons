@@ -1,7 +1,7 @@
 Name:           vivado-desktop
 Version:        0.3
 
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Icons and launcher for Vivado
 
 License:        MIT
@@ -34,19 +34,6 @@ desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 %clean
 rm -rf %{buildroot}
 
-%post
-/usr/bin/update-desktop-database &> /dev/null || :
-/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-%postun
-/usr/bin/update-desktop-database &> /dev/null || :
-if [ $1 -eq 0 ] ; then
-    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-fi
-
-%posttrans
-/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files
 %{_datadir}/icons/hicolor/*/apps/*
@@ -55,6 +42,9 @@ fi
 
 
 %changelog
+* Thu Apr 12 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-4
+- rebuilt
+
 * Sat Jan 14 2017 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-3
 - Blurred background for font
 
