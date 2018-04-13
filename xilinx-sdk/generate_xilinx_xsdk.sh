@@ -9,8 +9,8 @@ for i in {2014..2019}; do
         version=${i}.${j}
         package_name=${name}-${version}-desktop
         rm -rf ${package_name}
-        mkdir $package_name
-        pushd  $package_name >> /dev/null
+        mkdir ${package_name}
+        pushd  ${package_name} >> /dev/null
 
         cat >${name}-${version}.desktop <<EOF
 [Desktop Entry]
@@ -20,7 +20,7 @@ Comment=Xilinx SDK
 Icon=${name}-${version}
 MimeType=application/vivado;
 TryExec=/opt/Xilinx/SDK/${version}/bin/xsdk
-Exec=/opt/Xilinx/SDK/${version}/bin/xsdk -nolog -nojournal
+Exec=/opt/Xilinx/SDK/${version}/bin/xsdk
 StartupWMClass=Xilinx SDK
 EOF
 

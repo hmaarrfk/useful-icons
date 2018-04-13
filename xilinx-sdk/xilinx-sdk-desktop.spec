@@ -1,7 +1,7 @@
 Name:           xilinx-sdk-desktop
 Version:        0.1
 
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        Icons and launcher for Xilinx SDK
 
 License:        MIT
@@ -42,6 +42,12 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Apr 12 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.1-3
+- proper command line arguments
+
+* Thu Apr 12 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.1-2
+- Cooler icon
+
 * Thu Apr 12 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.1.1
 - Initial Build
 

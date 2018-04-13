@@ -2,15 +2,15 @@
 directory_prefix="icons/hicolor"
 icon_resolutions="64x64"
 directory_suffix="apps"
-name=${name}
+name=vivado
 
 for i in {2014..2019}; do
     for j in {1..4}; do
         version=${i}.${j}
         package_name=${name}-${version}-desktop
         rm -rf ${package_name}
-        mkdir $package_name
-        pushd  $package_name >> /dev/null
+        mkdir ${package_name}
+        pushd  ${package_name} >> /dev/null
 
         cat >${name}-${version}.desktop <<EOF
 [Desktop Entry]
@@ -27,7 +27,6 @@ EOF
         for r in $icon_resolutions; do
             the_directory="${directory_prefix}/$r/${directory_suffix}"
             mkdir -p "${the_directory}"
-            #convert -pointsize 15 -fill white -draw 'text 15,60 '\"${version}\"' ' -resize ${r} ../${name}.png ${the_directory}/${name}-${version}.png
             convert -size 64x64 xc:none -pointsize 15 \
                 -stroke black -strokewidth 2 -annotate +15+60 "${version}" -blur 0x2 \
                 -fill   white -stroke none   -annotate +15+60 "${version}" \

@@ -3,7 +3,7 @@ directory_prefix="icons/hicolor"
 icon_resolutions="256x256 128x128 64x64 32x32"
 directory_suffix="apps"
 
-for i in {2014..2017}; do
+for i in {2016..2019}; do
     for j in a b; do
         matlab_version=R${i}${j}
         package_name=matlab-${matlab_version}-desktop
