@@ -6,8 +6,8 @@ Summary:        Icons and launcher for Matlab
 
 License:        MIT
 URL:            https://github.com/hmaarrfk/useful-icons/tree/master/matlab-icons
-Source0:        matlab.png
-Source1:        generate_icons.sh
+Source0:        https://raw.githubusercontent.com/hmaarrfk/useful-icons/master/matlab-icons/matlab.png
+Source1:        https://raw.githubusercontent.com/hmaarrfk/useful-icons/master/matlab-icons/generate_icons.sh
 
 BuildArch: noarch
 BuildRequires: desktop-file-utils
