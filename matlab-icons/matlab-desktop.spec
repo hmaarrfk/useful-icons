@@ -1,7 +1,8 @@
 Name:           matlab-desktop
 Version:        0.5
 
-Release:        2%{?dist}
+License:        PublicDomain
+Release:        3%{?dist}
 Summary:        Icons and launcher for Matlab
 
 URL:            https://github.com/hmaarrfk/useful-icons/tree/master/matlab-icons
@@ -141,7 +142,7 @@ Launchers and icons for Matlab R2022b
 %prep
 
 %build
-%{_sourcedir}/generate_icons.sh %{_sourcedir}/matlab.png 2011 2022
+bash %{_sourcedir}/generate_icons.sh %{_sourcedir}/matlab.png 2011 2022
 
 %install
 for r in `ls icons/hicolor`; do
@@ -251,6 +252,9 @@ rm -rf %{buildroot}
 %{_datadir}/applications/matlab-R2022b.desktop
 
 %changelog
+* Sat Apr 14 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.5-3
+- Fixed execusion of the build script
+
 * Sat Apr 14 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.5-2
 - Single spec file, multiple rpms
 k
