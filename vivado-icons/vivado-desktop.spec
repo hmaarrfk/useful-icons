@@ -1,39 +1,36 @@
 Name:           vivado-desktop
-Version:        0.3
+Version:        0.4
 
 Release:        4%{?dist}
 Summary:        Icons and launcher for Vivado
 
-License:        MIT
 URL:            https://github.com/hmaarrfk/useful-icons/tree/master/vivado-icons
-Source0:        %{name}.tar.gz
+Source0:        https://raw.githubusercontent.com/hmaarrfk/useful-icons/master/vivado-icons/vivado.png
+Source1:        https://raw.githubusercontent.com/hmaarrfk/useful-icons/master/vivado-icons/generate_icons.sh
 
 
 BuildArch: noarch
 BuildRequires: desktop-file-utils
+BuildRequires: ImageMagick
 
 %description
 Launchers and icons for Vivado.
 
 
 %prep
-%autosetup -c name
 
 %build
+%{_sourcedir}/generate_icons.sh %{_sourcedir}/vivado.png 2016 2017
 
 %install
 for r in `ls %{name}/icons/hicolor`; do
     install -d %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
     install -m644 %{name}/icons/hicolor/${r}/apps/*.png %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
 done
-desktop_file_name=%{name}
-desktop_file_name=${desktop_file_name::-8}.desktop
-desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applications %{name}/${desktop_file_name}
-
+desktop-file-install --delete-original  --dir=${RPM_BUILD_ROOT}%{_datadir}/applications *.desktop
 
 %clean
 rm -rf %{buildroot}
-
 
 %files
 %{_datadir}/icons/hicolor/*/apps/*
