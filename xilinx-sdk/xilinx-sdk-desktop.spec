@@ -1,7 +1,7 @@
 Name:           xilinx-sdk-desktop
-Version:        0.1
+Version:        0.5
 
-Release:        3%{?dist}
+Release:        1%{?dist}
 Summary:        Icons and launcher for Xilinx SDK
 
 License:        MIT
@@ -12,6 +12,7 @@ Source1:        https://raw.githubusercontent.com/hmaarrfk/useful-icons/master/x
 
 BuildArch: noarch
 BuildRequires: desktop-file-utils
+BuildRequires: ImageMagick
 
 %description
 Launchers and icons for Xilinx SDK.
@@ -82,13 +83,11 @@ Launchers and icons for Xilinx SDK 2019.4
 bash %{_sourcedir}/generate_icons.sh %{_sourcedir}/*.png 2017 2019
 
 %install
-for r in `ls %{name}/icons/hicolor`; do
+for r in `ls icons/hicolor`; do
     install -d %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
-    install -m644 %{name}/icons/hicolor/${r}/apps/*.png %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
+    install -m644 icons/hicolor/${r}/apps/*.png %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
 done
-desktop_file_name=%{name}
-desktop_file_name=${desktop_file_name::-8}.desktop
-desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applications %{name}/${desktop_file_name}
+desktop-file-install --delete-original  --dir=${RPM_BUILD_ROOT}%{_datadir}/applications *.desktop
 
 
 %clean
@@ -146,6 +145,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sat Apr 14 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.5-1
+- Single spec, multiple rpms
+
 * Thu Apr 12 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.1-3
 - proper command line arguments
 
