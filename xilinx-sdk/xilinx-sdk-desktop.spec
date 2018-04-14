@@ -6,7 +6,8 @@ Summary:        Icons and launcher for Xilinx SDK
 
 License:        MIT
 URL:            https://github.com/hmaarrfk/useful-icons/tree/master/xilinx-sdk
-Source0:        %{name}.tar.gz
+Source0:        https://raw.githubusercontent.com/hmaarrfk/useful-icons/master/xilinx-sdk/xilinx-sdk.png
+Source1:        https://raw.githubusercontent.com/hmaarrfk/useful-icons/master/xilinx-sdk/generate_icons.sh
 
 
 BuildArch: noarch
@@ -15,11 +16,70 @@ BuildRequires: desktop-file-utils
 %description
 Launchers and icons for Xilinx SDK.
 
+%package -n xilinx-sdk-2017.1-desktop
+Summary: Xilinx SDK 2017.1
+%description -n xilinx-sdk-2017.1-desktop
+Launchers and icons for Xilinx SDK 2017.1
+
+%package -n xilinx-sdk-2017.2-desktop
+Summary: Xilinx SDK 2017.2
+%description -n xilinx-sdk-2017.2-desktop
+Launchers and icons for Xilinx SDK 2017.2
+
+%package -n xilinx-sdk-2017.3-desktop
+Summary: Xilinx SDK 2017.3
+%description -n xilinx-sdk-2017.3-desktop
+Launchers and icons for Xilinx SDK 2017.3
+
+%package -n xilinx-sdk-2017.4-desktop
+Summary: Xilinx SDK 2017.4
+%description -n xilinx-sdk-2017.4-desktop
+Launchers and icons for Xilinx SDK 2017.4
+
+%package -n xilinx-sdk-2018.1-desktop
+Summary: Xilinx SDK 2018.1
+%description -n xilinx-sdk-2018.1-desktop
+Launchers and icons for Xilinx SDK 2018.1
+
+%package -n xilinx-sdk-2018.2-desktop
+Summary: Xilinx SDK 2018.2
+%description -n xilinx-sdk-2018.2-desktop
+Launchers and icons for Xilinx SDK 2018.2
+
+%package -n xilinx-sdk-2018.3-desktop
+Summary: Xilinx SDK 2018.3
+%description -n xilinx-sdk-2018.3-desktop
+Launchers and icons for Xilinx SDK 2018.3
+
+%package -n xilinx-sdk-2018.4-desktop
+Summary: Xilinx SDK 2018.4
+%description -n xilinx-sdk-2018.4-desktop
+Launchers and icons for Xilinx SDK 2018.4
+
+%package -n xilinx-sdk-2019.1-desktop
+Summary: Xilinx SDK 2019.1
+%description -n xilinx-sdk-2019.1-desktop
+Launchers and icons for Xilinx SDK 2019.1
+
+%package -n xilinx-sdk-2019.2-desktop
+Summary: Xilinx SDK 2019.2
+%description -n xilinx-sdk-2019.2-desktop
+Launchers and icons for Xilinx SDK 2019.2
+
+%package -n xilinx-sdk-2019.3-desktop
+Summary: Xilinx SDK 2019.3
+%description -n xilinx-sdk-2019.3-desktop
+Launchers and icons for Xilinx SDK 2019.3
+
+%package -n xilinx-sdk-2019.4-desktop
+Summary: Xilinx SDK 2019.4
+%description -n xilinx-sdk-2019.4-desktop
+Launchers and icons for Xilinx SDK 2019.4
 
 %prep
-%autosetup -c name
 
 %build
+bash %{_sourcedir}/generate_icons.sh %{_sourcedir}/*.png 2017 2019
 
 %install
 for r in `ls %{name}/icons/hicolor`; do
@@ -35,9 +95,53 @@ desktop-file-install --delete-original --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 rm -rf %{buildroot}
 
 
-%files
-%{_datadir}/icons/hicolor/*/apps/*
-%{_datadir}/applications/*
+%files -n xilinx-sdk-2017.1-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2017.1.png
+%{_datadir}/applications/*-2017.1.desktop
+
+%files -n xilinx-sdk-2017.2-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2017.2.png
+%{_datadir}/applications/*-2017.2.desktop
+
+%files -n xilinx-sdk-2017.3-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2017.3.png
+%{_datadir}/applications/*-2017.3.desktop
+
+%files -n xilinx-sdk-2017.4-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2017.4.png
+%{_datadir}/applications/*-2017.4.desktop
+
+%files -n xilinx-sdk-2018.1-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2018.1.png
+%{_datadir}/applications/*-2018.1.desktop
+
+%files -n xilinx-sdk-2018.2-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2018.2.png
+%{_datadir}/applications/*-2018.2.desktop
+
+%files -n xilinx-sdk-2018.3-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2018.3.png
+%{_datadir}/applications/*-2018.3.desktop
+
+%files -n xilinx-sdk-2018.4-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2018.4.png
+%{_datadir}/applications/*-2018.4.desktop
+
+%files -n xilinx-sdk-2019.1-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2019.1.png
+%{_datadir}/applications/*-2019.1.desktop
+
+%files -n xilinx-sdk-2019.2-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2019.2.png
+%{_datadir}/applications/*-2019.2.desktop
+
+%files -n xilinx-sdk-2019.3-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2019.3.png
+%{_datadir}/applications/*-2019.3.desktop
+
+%files -n xilinx-sdk-2019.4-desktop
+%{_datadir}/icons/hicolor/*/apps/*-2019.4.png
+%{_datadir}/applications/*-2019.4.desktop
 
 
 

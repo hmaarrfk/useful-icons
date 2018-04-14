@@ -80,7 +80,7 @@ Launchers and icons for Xilinx Vivado 2019.4
 %prep
 
 %build
-bash %{_sourcedir}/generate_icons.sh %{_sourcedir}/vivado.png 2017 2019
+bash %{_sourcedir}/generate_icons.sh %{_sourcedir}/*.png 2017 2019
 
 %install
 for r in `ls icons/hicolor`; do
@@ -93,52 +93,52 @@ desktop-file-install --delete-original  --dir=${RPM_BUILD_ROOT}%{_datadir}/appli
 rm -rf %{buildroot}
 
 %files -n vivado-2017.1-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2017.1.png
-%{_datadir}/applications/vivado-2017.1.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2017.1.png
+%{_datadir}/applications/*-2017.1.desktop
 
 %files -n vivado-2017.2-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2017.2.png
-%{_datadir}/applications/vivado-2017.2.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2017.2.png
+%{_datadir}/applications/*-2017.2.desktop
 
 %files -n vivado-2017.3-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2017.3.png
-%{_datadir}/applications/vivado-2017.3.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2017.3.png
+%{_datadir}/applications/*-2017.3.desktop
 
 %files -n vivado-2017.4-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2017.4.png
-%{_datadir}/applications/vivado-2017.4.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2017.4.png
+%{_datadir}/applications/*-2017.4.desktop
 
 %files -n vivado-2018.1-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2018.1.png
-%{_datadir}/applications/vivado-2018.1.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2018.1.png
+%{_datadir}/applications/*-2018.1.desktop
 
 %files -n vivado-2018.2-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2018.2.png
-%{_datadir}/applications/vivado-2018.2.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2018.2.png
+%{_datadir}/applications/*-2018.2.desktop
 
 %files -n vivado-2018.3-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2018.3.png
-%{_datadir}/applications/vivado-2018.3.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2018.3.png
+%{_datadir}/applications/*-2018.3.desktop
 
 %files -n vivado-2018.4-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2018.4.png
-%{_datadir}/applications/vivado-2018.4.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2018.4.png
+%{_datadir}/applications/*-2018.4.desktop
 
 %files -n vivado-2019.1-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2019.1.png
-%{_datadir}/applications/vivado-2019.1.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2019.1.png
+%{_datadir}/applications/*-2019.1.desktop
 
 %files -n vivado-2019.2-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2019.2.png
-%{_datadir}/applications/vivado-2019.2.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2019.2.png
+%{_datadir}/applications/*-2019.2.desktop
 
 %files -n vivado-2019.3-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2019.3.png
-%{_datadir}/applications/vivado-2019.3.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2019.3.png
+%{_datadir}/applications/*-2019.3.desktop
 
 %files -n vivado-2019.4-desktop
-%{_datadir}/icons/hicolor/*/apps/vivado-2019.4.png
-%{_datadir}/applications/vivado-2019.4.desktop
+%{_datadir}/icons/hicolor/*/apps/*-2019.4.png
+%{_datadir}/applications/*-2019.4.desktop
 
 %changelog
 * Sat Apr 14 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.5-1
