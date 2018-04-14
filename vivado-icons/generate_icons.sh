@@ -27,7 +27,7 @@ EOF
                 -stroke black -strokewidth 2 -annotate +15+60 "${version}" -blur 0x2 \
                 -fill   white -stroke none   -annotate +15+60 "${version}" \
                 -resize ${r} ${the_directory}/${name}-${version}.png
-            composite ${the_directory}/${name}-${version}.png -resize ${r} ../${name}.png ${the_directory}/${name}-${version}.png
+            composite ${the_directory}/${name}-${version}.png -resize ${r} ${original_icon} ${the_directory}/${name}-${version}.png
         done
     done
 done

@@ -1,7 +1,8 @@
 Name:           vivado-desktop
-Version:        0.4
+Version:        0.5
 
-Release:        4%{?dist}
+License:        Public domain
+Release:        1%{?dist}
 Summary:        Icons and launcher for Vivado
 
 URL:            https://github.com/hmaarrfk/useful-icons/tree/master/vivado-icons
@@ -16,29 +17,133 @@ BuildRequires: ImageMagick
 %description
 Launchers and icons for Vivado.
 
+%package -n vivado-2017.1-desktop
+Summary: Vivado 2017.1
+%description -n vivado-2017.1-desktop
+Launchers and icons for Xilinx Vivado 2017.1
+
+%package -n vivado-2017.2-desktop
+Summary: Vivado 2017.2
+%description -n vivado-2017.2-desktop
+Launchers and icons for Xilinx Vivado 2017.2
+
+%package -n vivado-2017.3-desktop
+Summary: Vivado 2017.3
+%description -n vivado-2017.3-desktop
+Launchers and icons for Xilinx Vivado 2017.3
+
+%package -n vivado-2017.4-desktop
+Summary: Vivado 2017.4
+%description -n vivado-2017.4-desktop
+Launchers and icons for Xilinx Vivado 2017.4
+
+%package -n vivado-2018.1-desktop
+Summary: Vivado 2018.1
+%description -n vivado-2018.1-desktop
+Launchers and icons for Xilinx Vivado 2018.1
+
+%package -n vivado-2018.2-desktop
+Summary: Vivado 2018.2
+%description -n vivado-2018.2-desktop
+Launchers and icons for Xilinx Vivado 2018.2
+
+%package -n vivado-2018.3-desktop
+Summary: Vivado 2018.3
+%description -n vivado-2018.3-desktop
+Launchers and icons for Xilinx Vivado 2018.3
+
+%package -n vivado-2018.4-desktop
+Summary: Vivado 2018.4
+%description -n vivado-2018.4-desktop
+Launchers and icons for Xilinx Vivado 2018.4
+
+%package -n vivado-2019.1-desktop
+Summary: Vivado 2019.1
+%description -n vivado-2019.1-desktop
+Launchers and icons for Xilinx Vivado 2019.1
+
+%package -n vivado-2019.2-desktop
+Summary: Vivado 2019.2
+%description -n vivado-2019.2-desktop
+Launchers and icons for Xilinx Vivado 2019.2
+
+%package -n vivado-2019.3-desktop
+Summary: Vivado 2019.3
+%description -n vivado-2019.3-desktop
+Launchers and icons for Xilinx Vivado 2019.3
+
+%package -n vivado-2019.4-desktop
+Summary: Vivado 2019.4
+%description -n vivado-2019.4-desktop
+Launchers and icons for Xilinx Vivado 2019.4
 
 %prep
 
 %build
-%{_sourcedir}/generate_icons.sh %{_sourcedir}/vivado.png 2016 2017
+bash %{_sourcedir}/generate_icons.sh %{_sourcedir}/vivado.png 2017 2019
 
 %install
-for r in `ls %{name}/icons/hicolor`; do
+for r in `ls icons/hicolor`; do
     install -d %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
-    install -m644 %{name}/icons/hicolor/${r}/apps/*.png %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
+    install -m644 icons/hicolor/${r}/apps/*.png %{buildroot}%{_datadir}/icons/hicolor/${r}/apps
 done
 desktop-file-install --delete-original  --dir=${RPM_BUILD_ROOT}%{_datadir}/applications *.desktop
 
 %clean
 rm -rf %{buildroot}
 
-%files
-%{_datadir}/icons/hicolor/*/apps/*
-%{_datadir}/applications/*
+%files -n vivado-2017.1-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2017.1.png
+%{_datadir}/applications/vivado-2017.1.desktop
 
+%files -n vivado-2017.2-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2017.2.png
+%{_datadir}/applications/vivado-2017.2.desktop
 
+%files -n vivado-2017.3-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2017.3.png
+%{_datadir}/applications/vivado-2017.3.desktop
+
+%files -n vivado-2017.4-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2017.4.png
+%{_datadir}/applications/vivado-2017.4.desktop
+
+%files -n vivado-2018.1-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2018.1.png
+%{_datadir}/applications/vivado-2018.1.desktop
+
+%files -n vivado-2018.2-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2018.2.png
+%{_datadir}/applications/vivado-2018.2.desktop
+
+%files -n vivado-2018.3-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2018.3.png
+%{_datadir}/applications/vivado-2018.3.desktop
+
+%files -n vivado-2018.4-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2018.4.png
+%{_datadir}/applications/vivado-2018.4.desktop
+
+%files -n vivado-2019.1-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2019.1.png
+%{_datadir}/applications/vivado-2019.1.desktop
+
+%files -n vivado-2019.2-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2019.2.png
+%{_datadir}/applications/vivado-2019.2.desktop
+
+%files -n vivado-2019.3-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2019.3.png
+%{_datadir}/applications/vivado-2019.3.desktop
+
+%files -n vivado-2019.4-desktop
+%{_datadir}/icons/hicolor/*/apps/vivado-2019.4.png
+%{_datadir}/applications/vivado-2019.4.desktop
 
 %changelog
+* Sat Apr 14 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.5-1
+- Single spec, multiple rpms
+
 * Thu Apr 12 2018 Mark Harfouche <mark.harfouche@gmail.com> - 0.3-4
 - rebuilt
 
